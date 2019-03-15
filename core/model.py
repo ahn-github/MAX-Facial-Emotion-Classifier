@@ -51,7 +51,7 @@ class ModelWrapper(MAXModelWrapper):
     DETECTION_THRESHOLD = 0.95
 
     """Model wrapper for ONNX image classification model"""
-    def __init__(self, model_name=MODEL_ID, path=DEFAULT_MODEL_PATH):
+    def __init__(self, model_name='emotion_ferplus', path=DEFAULT_MODEL_PATH):
         self.input_shape = (1, 1, 64, 64)
         self.img_size=64
         self.detector = MTCNN()
