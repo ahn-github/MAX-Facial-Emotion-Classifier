@@ -25,7 +25,7 @@ as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/ex
 | This repository | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [LICENSE](LICENSE) |
 | Model Weights | [MIT](https://opensource.org/licenses/MIT) | [Emotion FER+ ONNX Model](https://github.com/onnx/models/tree/master/emotion_ferplus#license) |
 | Model Code (3rd party) | [MIT](https://opensource.org/licenses/MIT)  | [Emotion FER+ ONNX Model](https://github.com/onnx/models/tree/master/emotion_ferplus#license) |
-| Test assets | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [Asset README](assets/README.md) |
+| Test assets | Various | [Asset README](assets/README.md) |
 
 ## Pre-requisites:
 
