@@ -56,7 +56,7 @@ You can also deploy the model on Kubernetes using the latest docker image on Doc
 On your Kubernetes cluster, run the following commands:
 
 ```
-$ kubectl apply -f https://github.ibm.com/CODAIT/MAX-Facial-Emotion-Classifier/raw/master/max-facial-emotion-classifier.yaml
+$ kubectl apply -f https://github.com/IBM/MAX-Facial-Emotion-Classifier/raw/master/max-facial-emotion-classifier.yaml
 ```
 
 The model will be available internally at port `5000`, but can also be accessed externally through the `NodePort`.
@@ -75,7 +75,7 @@ The model will be available internally at port `5000`, but can also be accessed 
 Clone this repository locally. In a terminal, run the following command:
 
 ```
-$ git clone https://github.ibm.com/CODAIT/MAX-Facial-Emotion-Classifier.git
+$ git clone https://github.com/IBM/MAX-Facial-Emotion-Classifier.git
 ```
 
 Change directory into the repository base folder:
