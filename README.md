@@ -66,9 +66,9 @@ The model will be available internally at port `5000`, but can also be accessed 
 1. [Build the Model](#1-build-the-model)
 2. [Deploy the Model](#2-deploy-the-model)
 3. [Use the Model](#3-use-the-model)
-4. [Development](#4-development)
-5. [Cleanup](#5-cleanup)
-
+4. [Run the Notebook](#4-run-the-notebook)
+5. [Development](#5-development)
+6. [Clean Up](#6-cleanup)
 
 ### 1. Build the Model
 
@@ -151,10 +151,22 @@ You should see a JSON response like that below:
 }
 ```
 
-### 4. Development
+### 4. Run the Notebook
+
+[The demo notebook](demo.ipynb) walks through how to use the model to detect faces in an image and predict emotions for each face, as well as visualize the results. By default, the notebook uses the [hosted demo instance](http://max-facial-emotion-classifier.max.us-south.containers.appdomain.cloud), but you can use a locally running instance (see the comments in Cell 3 for details). _Note_ the demo requires `jupyter`, `matplotlib`, `Pillow`, and `requests`.
+
+Run the following command from the model repo base folder, in a new terminal window:
+
+```
+$ jupyter notebook
+```
+
+This will start the notebook server. You can launch the demo notebook by clicking on `demo.ipynb`.
+
+### 5. Development
 
 To run the Flask API app in debug mode, edit `config.py` to set `DEBUG = True` under the application settings. You will then need to rebuild the docker image (see [step 1](#1-build-the-model)).
 
-### 5. Cleanup
+### 6. Cleanup
 
 To stop the Docker container, type `CTRL` + `C` in your terminal.
