@@ -43,7 +43,7 @@ class ModelWrapper(MAXModelWrapper):
         'id': MODEL_ID,
         'name': MODEL_NAME,
         'description': 'Emotion classifier trained on the FER+ face dataset',
-        'type': 'Image Classification',
+        'type': 'Facial Recognition',
         'license': 'MIT',
         'source': 'https://developer.ibm.com/exchanges/models/all/max-facial-emotion-classifier/'
     }

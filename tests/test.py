@@ -23,11 +23,11 @@ def test_metadata():
     assert r.status_code == 200
 
     metadata = r.json()
-    assert metadata['id'] == 'emotion_ferplus'
-    assert metadata['name'] == 'FER+ Emotion Recognition Model'
+    assert metadata['id'] == 'max-facial-emotion-classifier'
+    assert metadata['name'] == 'MAX Facial Emotion Classifier'
     assert metadata['description'] == 'Emotion classifier trained on the FER+ face dataset'
     assert metadata['license'] == 'MIT'
-    assert metadata['type'] == 'Image Classification'
+    assert metadata['type'] == 'Facial Recognition'
     assert 'max-facial-emotion-classifier' in metadata['source']
 
 

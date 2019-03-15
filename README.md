@@ -11,7 +11,7 @@ as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/ex
 ## Model Metadata
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
 | ------------- | --------  | -------- | --------- | --------- | -------------- |
-| Vision | Image Classification | General | ONNX | [FER+ Emotion Dataset](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data) | Image (JPG/PNG) |
+| Vision | Facial Recognition | General | ONNX | [FER+ Emotion Dataset](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data) | Image (JPG/PNG) |
 
 ## References
 
