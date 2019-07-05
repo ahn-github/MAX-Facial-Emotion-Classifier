@@ -6,7 +6,7 @@ This repository contains code to instantiate and deploy a facial emotion classif
 
 
 The model is based on the [Emotion FER+ ONNX Model Repo](https://github.com/onnx/models/tree/master/emotion_ferplus). The model files are hosted on
-[IBM Cloud Object Storage](http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/max-facial-emotion-classifier/1.0/assets.tar.gz).
+[IBM Cloud Object Storage](https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-facial-emotion-classifier/1.0.0/assets.tar.gz).
 The code in this repository deploys the model as a web service in a Docker container. This repository was developed
 as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/exchanges/models/).
 
