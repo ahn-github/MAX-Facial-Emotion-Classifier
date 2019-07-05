@@ -50,7 +50,7 @@ def _check_response(r):
 
 def test_response():
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path = 'assets/happy-baby.jpeg'
+    file_path = 'samples/happy-baby.jpeg'
 
     with open(file_path, 'rb') as file:
         file_form = {'image': (file_path, file, 'image/jpeg')}
@@ -65,7 +65,7 @@ def test_response():
     _check_response(r)
 
     # test non-image input
-    file_path = 'assets/README.md'
+    file_path = 'samples/README.md'
     with open(file_path, 'rb') as file:
         file_form = {'image': (file_path, file, 'image/jpeg')}
         r = requests.post(url=model_endpoint, files=file_form)
@@ -84,7 +84,7 @@ def test_response():
 
 def test_multiple_faces():
     model_endpoint = 'http://localhost:5000/model/predict'
-    file_path = 'assets/group.jpeg'
+    file_path = 'samples/group.jpeg'
 
     with open(file_path, 'rb') as file:
         file_form = {'image': (file_path, file, 'image/jpeg')}
