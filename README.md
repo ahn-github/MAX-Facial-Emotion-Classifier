@@ -1,16 +1,15 @@
 [![Build Status](https://travis-ci.org/IBM/MAX-Facial-Emotion-Classifier.svg?branch=master)](https://travis-ci.org/IBM/MAX-Facial-Emotion-Classifier) [![Website Status](https://img.shields.io/website/http/max-facial-emotion-classifier.max.us-south.containers.appdomain.cloud/swagger.json.svg?label=api+demo)](http://max-facial-emotion-classifier.max.us-south.containers.appdomain.cloud/)
 
+[<img src="docs/deploy-max-to-ibm-cloud-with-kubernetes-button.png" width="400px">](http://ibm.biz/max-to-ibm-cloud-tutorial)
+
 # IBM Developer Model Asset Exchange: Facial Emotion Classifier
 
 This repository contains code to instantiate and deploy a facial emotion classifier. The model first detects faces in an input image. Then, each face is passed to the emotion classification model which predicts the emotional state of the human, from a set of 8 emotion classes: `neutral`, `happiness`, `surprise`, `sadness`, `anger`, `disgust`, `fear`, `contempt`. The output of the model is a set of bounding box coordinates and predicted probabilities for each of the emotion classes, for each face detected in the image. The format of the bounding box coordinates is `[ymin, xmin, ymax, xmax]`, where each coordinate is _normalized_ by the appropriate image dimension (height for `y` or width for `x`). Each coordinate is therefore in the range `[0, 1]`.
 
-
-The model is based on the [Emotion FER+ ONNX Model Repo](https://github.com/onnx/models/tree/master/emotion_ferplus). The model files are hosted on
-[IBM Cloud Object Storage](https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-facial-emotion-classifier/1.0.0/assets.tar.gz).
-The code in this repository deploys the model as a web service in a Docker container. This repository was developed
-as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/exchanges/models/).
+The model is based on the [Emotion FER+ ONNX Model Repo](https://github.com/onnx/models/tree/master/emotion_ferplus). The model files are hosted on [IBM Cloud Object Storage](https://s3.us-south.cloud-object-storage.appdomain.cloud/max-assets-prod/max-facial-emotion-classifier/1.0.0/assets.tar.gz). The code in this repository deploys the model as a web service in a Docker container. This repository was developed as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/exchanges/models/) and the public API is powered by [IBM Cloud](https://ibm.biz/Bdz2XM).
 
 ## Model Metadata
+
 | Domain | Application | Industry  | Framework | Training Data | Input Data Format |
 | ------------- | --------  | -------- | --------- | --------- | -------------- |
 | Vision | Facial Recognition | General | ONNX | [FER+ Emotion Dataset](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data) | Image (JPG/PNG) |
@@ -27,7 +26,7 @@ as part of the [IBM Developer Model Asset Exchange](https://developer.ibm.com/ex
 | This repository | [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) | [LICENSE](LICENSE) |
 | Model Weights | [MIT](https://opensource.org/licenses/MIT) | [Emotion FER+ ONNX Model](https://github.com/onnx/models/tree/master/emotion_ferplus#license) |
 | Model Code (3rd party) | [MIT](https://opensource.org/licenses/MIT)  | [Emotion FER+ ONNX Model](https://github.com/onnx/models/tree/master/emotion_ferplus#license) |
-| Test assets | Various | [Asset README](assets/README.md) |
+| Test assets | Various | [Samples README](samples/README.md) |
 
 ## Pre-requisites:
 
@@ -62,6 +61,8 @@ $ kubectl apply -f https://github.com/IBM/MAX-Facial-Emotion-Classifier/raw/mast
 ```
 
 The model will be available internally at port `5000`, but can also be accessed externally through the `NodePort`.
+
+A more elaborate tutorial on how to deploy this MAX model to production on [IBM Cloud](https://ibm.biz/Bdz2XM) can be found [here](http://ibm.biz/max-to-ibm-cloud-tutorial).
 
 ## Run Locally
 
@@ -114,7 +115,7 @@ Use the `model/predict` endpoint to load a test image (you can use one of the te
 You can also test it on the command line, for example:
 
 ```
-$ curl -F "image=@assets/happy-baby.jpeg" -XPOST http://localhost:5000/model/predict
+$ curl -F "image=@samples/happy-baby.jpeg" -XPOST http://localhost:5000/model/predict
 ```
 
 You should see a JSON response like that below:
