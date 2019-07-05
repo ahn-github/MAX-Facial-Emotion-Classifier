@@ -1,10 +1,4 @@
-# Asset Details
-
-## Model files
-
-Model files are from the [ONNX FER+ Emotion Recognition Model](https://github.com/onnx/models/tree/master/emotion_ferplus), where they are available under an [MIT License](https://opensource.org/licenses/MIT).
-
-_Note_ the model files are hosted on [IBM Cloud Object Storage](http://max-assets.s3-api.us-geo.objectstorage.softlayer.net/max-facial-emotion-classifier/1.0/assets.tar.gz).
+# Sample Assets
 
 ## Images
 
