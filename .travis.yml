@@ -4,11 +4,11 @@ python:
 services:
   - docker
 install:
+  - pip install -r requirements-test.txt
   - docker build -t max-facial-emotion-classifier .
   - docker run -it -d --rm -p 5000:5000 max-facial-emotion-classifier
 before_script:
   - flake8 . --max-line-length=127
-  - pip install -r test-requirements.txt
   - sleep 30
 script:
   - pytest tests/test.py
