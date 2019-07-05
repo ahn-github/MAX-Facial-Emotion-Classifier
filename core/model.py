@@ -30,6 +30,7 @@ from flask import abort
 
 logger = logging.getLogger()
 
+
 def read_image(image_data):
     try:
         image = Image.open(io.BytesIO(image_data))
@@ -41,8 +42,10 @@ def read_image(image_data):
         logger.error(e)
         abort(400, 'Invalid file type/extension. Please provide a valid image (supported formats: JPEG, PNG, TIFF).')
 
+
 def softmax(x):
     return np.exp(x) / np.sum(np.exp(x), axis=0)
+
 
 def post_process_result(probs, idxs, classes, bbox, topk=5):
     results = []
@@ -52,6 +55,7 @@ def post_process_result(probs, idxs, classes, bbox, topk=5):
         results.append(result)
     results.append(bbox)
     return results
+
 
 class ModelWrapper(MAXModelWrapper):
 
@@ -69,7 +73,7 @@ class ModelWrapper(MAXModelWrapper):
     """Model wrapper for ONNX image classification model"""
     def __init__(self, model_name='emotion_ferplus', path=DEFAULT_MODEL_PATH):
         self.input_shape = (1, 1, 64, 64)
-        self.img_size=64
+        self.img_size = 64
         self.detector = MTCNN()
         logger.info('Loading model from: {}...'.format(path))
 
@@ -126,10 +130,8 @@ class ModelWrapper(MAXModelWrapper):
         predict_result = []
         # to Emotion input
         for i in range(img_num):
-            img_2d = np.array(x[i,:,:])
+            img_2d = np.array(x[i, :, :])
             img_2d = np.resize(img_2d, self.input_shape)
             img_2d = img_2d.astype(np.float32)
             predict_result.append(self.sess.run([self.output_name], {self.input_name: img_2d})[0].ravel())
         return (predict_result, pre_x[1])
-
-

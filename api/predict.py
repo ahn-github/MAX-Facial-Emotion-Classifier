@@ -33,6 +33,7 @@ labels_response = MAX_API.model('LabelsResponse', {
     'labels': fields.List(fields.Nested(model_label), description='List of labels that can be predicted by the model')
 })
 
+
 class ModelLabelsAPI(MetadataAPI):
     '''API for getting information about available class labels'''
     @MAX_API.doc('get_labels')
@@ -45,6 +46,7 @@ class ModelLabelsAPI(MetadataAPI):
         return result
 
 # === Predict API
+
 
 # Set up parser for input data (http://flask-restplus.readthedocs.io/en/stable/parsing.html)
 input_parser = MAX_API.parser()
@@ -73,20 +75,22 @@ emotion_example = [
 
 # Creating a JSON response model: https://flask-restplus.readthedocs.io/en/stable/marshalling.html#the-api-model-factory
 label_prediction = MAX_API.model('LabelPrediction', {
-    'detection_box': fields.List(fields.Float(required=True), description='Bounding box coordinates for the face, ' + \
-        'in the form of an array of normalized coordinates [ymin, xmin, ymax, xmax]. Each coordinate is in the range [0, 1]',
-        example=[0.15, 0.38, 0.53, 0.58]),
+    'detection_box': fields.List(fields.Float(required=True),
+                                 description='Bounding box coordinates for the face, in the form of an array of normalized ' +
+                                 'coordinates [ymin, xmin, ymax, xmax]. Each coordinate is in the range [0, 1]',
+                                 example=[0.15, 0.38, 0.53, 0.58]),
     'emotion_predictions': fields.List(fields.Nested(emotion_label),
-        description='Predicted emotion labels and probabilities for the face',
-        example=emotion_example)
+                                       description='Predicted emotion labels and probabilities for the face',
+                                       example=emotion_example)
 })
 
 
 predict_response = MAX_API.model('ModelPredictResponse', {
     'status': fields.String(required=True, description='Response status message', example='ok'),
-    'predictions': fields.List(fields.Nested(label_prediction),
-        description='Predicted bounding boxes, emotion labels and probabilities for each detected face in input image')
+    'predictions': fields.List(fields.Nested(label_prediction), description='Predicted bounding boxes, emotion labels ' +
+                               'and probabilities for each detected face in input image')
 })
+
 
 class ModelPredictAPI(PredictAPI):
 
@@ -108,7 +112,7 @@ class ModelPredictAPI(PredictAPI):
             # Modify this code if the schema is changed
             for p in res:
                 if type(p) is tuple:
-                    emo={'label_id': p[0], 'label': p[1], 'probability': p[2]}
+                    emo = {'label_id': p[0], 'label': p[1], 'probability': p[2]}
                     emotion_predictions.append(emo)
                 if type(p) is list:
                     face_emo['detection_box'] = p

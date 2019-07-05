@@ -47,6 +47,7 @@ def _check_response(r):
     assert .54 > response['predictions'][0]['detection_box'][2] > .52
     assert .59 > response['predictions'][0]['detection_box'][3] > .58
 
+
 def test_response():
     model_endpoint = 'http://localhost:5000/model/predict'
     file_path = 'assets/happy-baby.jpeg'
@@ -100,6 +101,7 @@ def test_multiple_faces():
         bbox = p['detection_box']
         for b in bbox:
             assert b >= 0 and b <= 1
+
 
 if __name__ == '__main__':
     pytest.main([__file__])
